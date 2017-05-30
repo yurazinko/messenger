@@ -1,0 +1,15 @@
+- if @over_ten
+  = link_to 'Show Previous', '?m=all'
+.ui.segment
+  - @messages.each do |message|
+    - if message.body
+      - user = User.find(message.user_id)
+      .item
+        .content
+          .header
+            strong= user.first_name
+          .list
+            .item
+              i.right.triangle.icon
+              = message.body
+= link_to 'NEW', new_conversation_message_path
