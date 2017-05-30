@@ -5,6 +5,7 @@ class ConversationsController < ApplicationController
     @users = User.all
     @conversations = Conversation.all
     authorize @conversations
+    render @conversations
   end
 
   def create
