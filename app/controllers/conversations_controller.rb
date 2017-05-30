@@ -4,10 +4,12 @@ class ConversationsController < ApplicationController
   def index
     @users = User.all
     @conversations = Conversation.all
+    authorize @conversations
   end
 
   def create
     @conversation = Conversation.create!(conversation_params)
+    authorize @conversation
     redirect_to conversation_messages_path(@conversation)
   end
 

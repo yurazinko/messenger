@@ -5,14 +5,17 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
+    authorize  @messages
   end
 
   def new
     @message = @conversation.messages.new
+    authorize  @message
   end
 
   def create
     @message = @conversation.messages.new(message_params)
+    authorize  @message
     if @message.save
       redirect_to conversation_messages_path(@conversation)
     end
