@@ -4,8 +4,10 @@ class ConversationsController < ApplicationController
   def index
     @users = User.all
     @conversations = Conversation.all
-    authorize @conversations
-    render @conversations
+  end
+
+  def new
+    @conversation = Conversation.new(conversation_params)
   end
 
   def create

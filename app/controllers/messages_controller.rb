@@ -5,7 +5,6 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
-    authorize  @messages
   end
 
   def new

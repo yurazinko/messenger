@@ -1,6 +1,11 @@
 div.col-md-12
   h3
     | Mailbox
+div.col-md-12
+  h3
+    = link_to 'New Message', new_conversation_path
+div.col-md-12
+  h3
     - @conversations.each do |conversation|
       - if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id
         - if conversation.sender_id == current_user.id
